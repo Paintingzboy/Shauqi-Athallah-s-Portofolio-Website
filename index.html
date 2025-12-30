@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shauqi Athallah's Portofolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Assets/Logo.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(180deg, #253551 0%, #151B25 100%); background-attachment: fixed; color: #ffffff; overflow-x: hidden; }
+
+        /* --- Navbar --- */
+        .navbar { display: flex; justify-content: center; padding: 1.5rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-links { display: flex; list-style: none; background: rgba(255, 255, 255, 0.05); padding: 0.5rem 1rem; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
+        .nav-links li { margin: 0 5px; }
+        .nav-links a { text-decoration: none; color: #a0aec0; padding: 0.5rem 1.2rem; border-radius: 20px; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a.active, .nav-links a:hover { background: rgba(255, 255, 255, 0.15); color: white; }
+
+        /* --- Hero Section --- */
+        .hero-container { height: 100vh; display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .hero-text { flex: 1.2; z-index: 2; }
+        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-text p { color: #cbd5e0; font-size: 1.2rem; margin-bottom: 2.5rem; }
+        .social-icons { display: flex; gap: 1.5rem; }
+        .social-icons a { color: white; font-size: 1.6rem; transition: 0.3s; }
+        .social-icons a:hover { transform: translateY(-3px); color: #a0aec0; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; padding-bottom: 5vh; }
+        .hero-image img { max-width: 90%; height: auto; max-height: 85vh; object-fit: contain; -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%); }
+
+        /* --- Experiences --- */
+        .experience-section { max-width: 1200px; margin: 0 auto; padding: 120px 2rem; }
+        .experience-section h2 { font-size: 3.5rem; margin-bottom: 4rem; }
+        .exp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; }
+        .exp-item h3 { font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .exp-item ul { list-style: none; color: #cbd5e0; }
+        .exp-item li { margin-bottom: 0.8rem; position: relative; padding-left: 1.5rem; font-size: 1.1rem; }
+        .exp-item li::before { content: "•"; position: absolute; left: 0; color: #ffffff; }
+
+        /* --- Engineering Section --- */
+        .engineering-section { position: relative; background-color: #0a1a0f; padding: 100px 0; min-height: 100vh; }
+        .grid-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        .eng-title { font-size: 3rem; margin-bottom: 1rem; color: #fff; }
+        .eng-subtitle { font-size: 1.1rem; color: #a0aec0; margin-bottom: 0.5rem; }
+        .eng-text { margin-bottom: 3rem; color: #fff; }
+        .project-list { display: flex; flex-direction: column; gap: 25px; }
+        .project-box { display: flex; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 15px; padding: 20px; position: relative; transition: 0.3s ease; align-items: center; gap: 20px; }
+        .project-box:hover { background: rgba(255, 255, 255, 0.07); transform: scale(1.02); }
+        .project-img { width: 180px; height: 120px; background: #1a1a1a; border-radius: 10px; overflow: hidden; flex-shrink: 0; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-info h3 { font-size: 1.4rem; margin-bottom: 5px; }
+        .project-info p { color: #cbd5e0; font-size: 0.95rem; }
+        .category { font-style: italic; color: #a0aec0; font-size: 0.9rem; }
+        .project-actions { position: absolute; top: 20px; right: 20px; display: flex; gap: 15px; }
+        .project-link { color: rgba(255, 255, 255, 0.5); font-size: 1.2rem; transition: 0.3s; text-decoration: none; }
+        .project-link:hover { color: #fff; transform: scale(1.1); }
+        .youtube-hover:hover { color: #FF0000; }
+        
+        /* FIX @SHQELECTRIC: TENGAH & NO UNDERLINE */
+        .coming-soon { text-align: center; margin-top: 50px; }
+        .coming-soon a { color: #ffffff; text-decoration: none !important; font-weight: 700; }
+
+        /* --- Art Section --- */
+        .art-section { background-color: #ffffff !important; color: #000000 !important; padding: 100px 0; min-height: 100vh; position: relative; z-index: 5; }
+        .art-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .art-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; color: #000 !important; }
+        .art-subtitle { font-size: 1.1rem; margin-bottom: 60px; color: #333 !important; line-height: 1.6; }
+
+        /* Slideshow */
+        .slideshow-container { position: relative; width: 100%; overflow: hidden; border-radius: 10px; }
+        .slides-wrapper { display: flex; width: 300%; transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .featured-art { flex: 0 0 33.333%; display: flex; align-items: center; justify-content: space-between; gap: 50px; padding: 20px; }
+        .art-info { flex: 1; }
+        .art-name { font-size: 2.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 15px; color: #000 !important; }
+        .art-detail { font-size: 1.1rem; color: #444 !important; }
+        .art-frame { flex: 1.4; border-radius: 4px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .art-frame img { width: 100%; display: block; }
+
+        /* NAV BUTTONS TRANSPARAN MELAYANG */
+        .slide-nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.1); color: white; border: none;
+            width: 50px; height: 50px; border-radius: 50%; cursor: pointer;
+            z-index: 20; transition: 0.3s; font-size: 1.2rem;
+        }
+        .slide-nav-btn:hover { background: rgba(0, 0, 0, 0.3); }
+        .prev-slide { left: 10px; }
+        .next-slide { right: 10px; }
+
+        /* Art Gallery Masonry (Asli) */
+        .gallery-header { text-align: center; font-size: 4rem; font-weight: 900; margin: 60px 0 40px; color: #000 !important; }
+        .art-masonry-grid { columns: 3; column-gap: 20px; width: 100%; }
+        .grid-box { break-inside: avoid; margin-bottom: 20px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; }
+        .grid-box img { width: 100%; height: auto; display: block; }
+
+        .art-insta { text-align: center; font-size: 1.1rem; color: #000 !important; margin-top: 40px; }
+        .art-insta a { color: #000 !important; font-weight: 700; text-decoration: none; }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1.2s all ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 968px) {
+            .hero-container { flex-direction: column; text-align: center; height: auto; padding-top: 120px; }
+            .featured-art { flex-direction: column; text-align: left; gap: 20px; }
+            .art-masonry-grid { columns: 2; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-item">Home</a></li>
+            <li><a href="#engineering" class="nav-item">Engineering</a></li>
+            <li><a href="#art" class="nav-item">Art</a></li>
+            <li><a href="#cv" class="nav-item">CV</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero-container">
+        <div class="hero-text">
+            <h1>Hello,<br>I’m Shauqi Athallah.</h1>
+            <p>Instrumentation Engineering Student |<br>Painter | Designer</p>
+            <div class="social-icons">
+                <a href="https://youtube.com/@Paintingzboy" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://tiktok.com/@Paintingzboy" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://instagram.com/shq_athl" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Paintingzboy" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="hero-image"><img src="Assets/Shauqi_Athallah.png" alt="Shauqi Athallah"></div>
+    </section>
+
+    <section id="experiences" class="experience-section reveal">
+        <h2>Experiences</h2>
+        <div class="exp-grid">
+            <div class="exp-item">
+                <h3>Organization</h3>
+                <ul>
+                    <li>Instrumentation Festival ( Sep 2024 - Now )</li>
+                    <li>Voits Fest (June - October 2024)</li>
+                    <li>Teater Gabung ( June 2023 - June 2024 )</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <h3>Competition</h3>
+                <ul>
+                    <li>Liga PKM KC ( December 2024)</li>
+                    <li>PLC Competition ( Sep 2024 )</li>
+                    <li>Annual Physic Competition ( June 2024 )</li>
+                </ul>
+            </div>
+            <div class="exp-item">
+                <h3>Internship</h3>
+                <ul>
+                    <li>Himatekins Internship (September - Now)</li>
+                    <li>Bayucaraka Internship (Oct 2024 - Nov 2024)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="engineering" class="engineering-section reveal">
+        <div class="grid-overlay"></div>
+        <div class="container">
+            <h2 class="eng-title">Engineering.</h2>
+            <p class="eng-subtitle">As an Instrumentation Engineering Student, I enjoy making projects such as Electronics, PCB designing, 3D Designing, Programming, etc.</p>
+            <p class="eng-text">Here is some of my projects:</p>
+        <br>
+
+            <div class="project-list">
+                <div class="project-box">
+                    <div class="project-img"><img src="Assets/ecg_project.png" alt="ECG"></div>
+                    <div class="project-info"><h3>ECG Amplifier for Baby</h3><p>An amplifier for ECG.</p><span class="category">- Electrical</span></div>
+                    <div class="project-actions"><a href="https://youtu.be/waEF_Oey0KQ" target="_blank" class="project-link youtube-hover"><i class="fab fa-youtube"></i></a></div>
+                </div>
+                <div class="project-box">
+                    <div class="project-img"><img src="Assets/sleep_apnea.png" alt="Sleep Apnea"></div>
+                    <div class="project-info"><h3>Sleep Apnea Program</h3><p>Detecting and simulating Sleep Apnea.</p><span class="category">- Programming</span></div>
+                    <div class="project-actions"><a href="https://github.com/Paintingzboy/Sleep-Apnea-Automatic-Detection-Simulation" target="_blank" class="project-link"><i class="fab fa-github"></i></a></div>
+                </div>
+                <div class="project-box">
+                    <div class="project-img"><img src="Assets/solar_box.png" alt="3D Solar Box"></div>
+                    <div class="project-info"><h3>3D Solar Box</h3><p>An enclosure for solar charging system components.</p><span class="category">- 3D Design</span></div>
+                    <div class="project-actions"><a href="https://www.tinkercad.com/things/6fHM1YEvElI" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a></div>
+            </div>
+            <div class="coming-soon">
+                <h3>Coming Soon..</h3>
+                <p>See more at <a href="https://instagram.com/shqelectric" target="_blank">@shqelectric</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="art" class="art-section reveal">
+        <div class="art-container">
+            <h2 class="art-title">Art.</h2>
+            <p class="art-subtitle">As a person, i love making Arts such as Painting, Sketch, Music, Design, etc.<br>
+
+                Here is some of my works:</p>
+
+            <div class="slideshow-container">
+                <button class="slide-nav-btn prev-slide" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-nav-btn next-slide" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                
+                <div class="slides-wrapper" id="slidesWrapper">
+                    <div class="featured-art">
+                        <div class="art-info">
+                            <h3 class="art-name">Nara gerotelo<br>anana</h3>
+                            <p class="art-detail">40x30cm<br>Oil on Canvas<br>August 2023</p>
+                        </div>
+                        <div class="art-frame"><img src="Assets/nara_gerotelo.png"></div>
+                    </div>
+                    <div class="featured-art">
+                        <div class="art-info">
+                            <h3 class="art-name">Joe and<br>Laurie</h3>
+                            <p class="art-detail">60x40cm<br>Oil on Canvas<br>May 2023</p>
+                        </div>
+                        <div class="art-frame"><img src="Assets/JoeNLaurie.png"></div>
+                    </div>
+                    <div class="featured-art">
+                        <div class="art-info">
+                            <h3 class="art-name">Fisherman's<br>Family</h3>
+                            <p class="art-detail">120x100cm<br>Oil on Canvas<br>Jan 2024</p>
+                        </div>
+                        <div class="art-frame"><img src="Assets/Nelayan.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="gallery-header">Art Gallery</h4>
+            <div class="art-masonry-grid">
+                <div class="grid-box"><img src="Assets/art1.png"></div>
+                <div class="grid-box"><img src="Assets/art2.png"></div>
+                <div class="grid-box"><img src="Assets/art3.png"></div>
+                <div class="grid-box"><img src="Assets/art4.png"></div>
+                <div class="grid-box"><img src="Assets/art5.png"></div>
+                <div class="grid-box"><img src="Assets/art6.png"></div>
+            </div>
+            <div class="art-insta">
+                <p>See more at <a href="https://instagram.com/shqsart" target="_blank">@shqsart</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv" style="min-height: 100vh; padding: 100px 2rem; background: #151B25;">
+    <div class="container">
+        <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Curriculum Vitae.</h2>
+        
+        <div class="cv-wrapper" style="width: 100%; max-width: 900px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+            <embed src="Assets/CV_Shauqi_Athallah.pdf" type="application/pdf" width="100%" height="800px" />
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="Assets/CV_Shauqi_Athallah.pdf" download class="nav-links" style="display: inline-block; padding: 10px 25px; background: rgba(255,255,255,0.1); color: white; text-decoration: none; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);">
+                <i class="fas fa-download"></i> Download CV
+            </a>
+        </div>
+    </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let index = 0;
+            const wrapper = document.getElementById('slidesWrapper');
+            const totalSlides = 3;
+
+            function updateSlide() {
+                wrapper.style.transform = `translateX(-${index * (100 / totalSlides)}%)`;
+            }
+
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                index = (index + 1) % totalSlides;
+                updateSlide();
+            });
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                index = (index - 1 + totalSlides) % totalSlides;
+                updateSlide();
+            });
+
+            // Scroll Reveal
+            window.addEventListener('scroll', () => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
