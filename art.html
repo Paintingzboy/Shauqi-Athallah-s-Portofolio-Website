@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art - Shauqi Athallah's Portfolio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="Assets/Logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="engineering.html" class="nav-item">Engineering</a></li>
+            <li><a href="art.html" class="nav-item">Art</a></li>
+            <li><a href="cv.html" class="nav-item">CV</a></li>
+        </ul>
+    </nav>
+
+    <section class="art-section reveal">
+        <div class="art-container">
+            <h2 class="art-title anim-title">Art.</h2>
+            <p class="art-subtitle anim-subtitle">As a person, i love making Arts such as Painting, Sketch, Music, Design, etc.<br>
+                Here is some of my works:</p>
+
+            <div class="slideshow-container">
+                <button class="slide-nav-btn prev-slide" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                <button class="slide-nav-btn next-slide" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+
+                <div class="slides-wrapper" id="slidesWrapper">
+                    <div class="featured-art anim-image">
+                        <div class="art-info">
+                            <h3 class="art-name">Nara gerotelo<br>anana</h3>
+                            <p class="art-detail">40x30cm<br>Oil on Canvas<br>August 2023</p>
+                        </div>
+                        <div class="art-frame"><img src="Assets/nara_gerotelo.png"></div>
+                    </div>
+                    <div class="featured-art anim-image">
+                        <div class="art-info">
+                            <h3 class="art-name">Joe and<br>Laurie</h3>
+                            <p class="art-detail">60x40cm<br>Oil on Canvas<br>May 2023</p>
+                        </div>
+                        <div class="art-frame anim-image"><img src="Assets/JoeNLaurie.png"></div>
+                    </div>
+                    <div class="featured-art anim-image">
+                        <div class="art-info">
+                            <h3 class="art-name">Fisherman's<br>Family</h3>
+                            <p class="art-detail">120x100cm<br>Oil on Canvas<br>Jan 2024</p>
+                        </div>
+                        <div class="art-frame"><img src="Assets/Nelayan.png"></div>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="gallery-header">Art Gallery</h4>
+            <div class="art-masonry-grid">
+                <div class="grid-box"><img src="Assets/art1.png"></div>
+                <div class="grid-box"><img src="Assets/art2.png"></div>
+                <div class="grid-box"><img src="Assets/art3.png"></div>
+                <div class="grid-box"><img src="Assets/art4.png"></div>
+                <div class="grid-box"><img src="Assets/art5.png"></div>
+                <div class="grid-box"><img src="Assets/art6.png"></div>
+                <div class="grid-box"><img src="Assets/Gambar 1.jpeg" alt="Gallery Image 1"></div>
+                <div class="grid-box"><img src="Assets/Gambar 2.jpeg" alt="Gallery Image 2"></div>
+            </div>
+            <div class="art-insta">
+                <p>See more at <a href="https://instagram.com/shqsart" target="_blank">@shqsart</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
